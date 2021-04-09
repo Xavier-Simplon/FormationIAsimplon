@@ -1,0 +1,60 @@
++*In[ ]:*+
+[source, ipython3]
+----
+#Jeu du pendu
+
+
+print("Jeu du pendu !!")
+
+v=6  ## compteur du nombre d'essaie de l'user
+
+choix = ["programmation"]
+
+mot = random.choice(choix).upper()
+
+
+while v>0:
+    l=input("entrer une lettre :")[0:1].upper()
+    i_l=mot.find(l)
+    if i_l==(-1):
+        print("# "*len(mot))
+    while i_l !=(-1):
+        i1=i_l
+        i2=mot.find(l,(i1+1))
+        if i2!=(-1):
+            print('# '*i_l+l+' #'*(i2-i1-1)+' '+l+' #'*(len(mot)-i2-1))
+        elif i2==(-1):
+            print("# "*i_l+mot[i_l]+' #'*(len(mot)-i_l-1))
+        i_l=-1
+    v-=1
+
+mot_proposer = input("Saisissez un mot :").upper()
+if mot_proposer == mot:
+  print("Gagner ! c'etait bien le mot:",mot)
+else:
+  print("Perdu ! ce n'etais pas :",mot_proposer,",mais bien",mot)
+
+
+----
+
+
++*Out[ ]:*+
+----
+Jeu du pendu !!
+entrer une lettre :o
+# # O # # # # # # # # O #
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
